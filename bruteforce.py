@@ -39,6 +39,9 @@ def bruteforce(fun, thread_num: int):
             count += thread_num
             r = [t.result() for t in pool_queue]
 
+            if not count % 100:
+                print("爆破了 {} 次".format(count))
+
     except KeyboardInterrupt:
         print("用户停止程序，程序运行时间{}, 运行次数 {} ".format(datetime.now() - start_time, count))
         success = []

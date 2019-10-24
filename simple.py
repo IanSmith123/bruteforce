@@ -1,7 +1,7 @@
 from queue import Queue
 import requests
 
-from bruteforce import multi_thread_request, bruteforce, success_queue, dict_queue
+from bruteforce import bruteforce, success_queue, dict_queue
 
 
 def login():
@@ -13,6 +13,8 @@ def login():
     login_info = dict_queue.get()
     username = login_info[0]
     password = login_info[1]
+
+    ################################实现登录过程开始
     payload = {
         "username": username,
         "password": password
@@ -20,16 +22,19 @@ def login():
     r = requests.post("https://httpbin.org/post", data=payload)
     # 判断是否登录成功
     # print(r.text)
+    ##################################实现登录过程结束
+
+    ##################################检查密码是否正确开始
     if True:
-    # if r.status_code == 302:  # 根据实际情况修改此处，判定登录成功
+        # if r.status_code == 302:  # 根据实际情况修改此处，判定登录成功
         msg = login_info
         # 登录成功则把登录信息保存到success_queue
         success_queue.put(msg)
-    else:
-        pass
+
+    ################################## 检查密码是否正确结束
 
 
-def get_dict() -> Queue:
+def get_dict():
     """
     生成字典队列
     :return:
@@ -45,8 +50,6 @@ def get_dict() -> Queue:
         for p in passwords:
             pair = (u, p)
             dict_queue.put(pair)
-
-    return dict_queue
 
 
 if __name__ == "__main__":
