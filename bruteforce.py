@@ -5,6 +5,7 @@ from queue import Queue
 success_queue = Queue()  # 存储成功爆破的密码
 dict_queue = Queue()  # 存储字典队列
 
+brute_count = 0
 
 def multi_thread_request(fun, thread_num: int):
     """
@@ -13,15 +14,19 @@ def multi_thread_request(fun, thread_num: int):
     :param thread_num:
     :return:
     """
+    global brute_count
     pool = ThreadPoolExecutor(thread_num)
     pool_queue = []
     for i in range(thread_num):
+        if dict_queue.empty():
+            break
         pool_queue.append(pool.submit(fun, ))
+        brute_count += 1
 
     return pool_queue
 
 
-def bruteforce(fun, thread_num: int):
+def bruteforce(fun, thread_num=10):
     """
     直接开干
     :param fun:
@@ -29,23 +34,25 @@ def bruteforce(fun, thread_num: int):
     :return:
     """
     start_time = datetime.now()
-    count = 0
     print("{} 开始爆破，设定线程 {}".format(start_time, thread_num))
     try:
         while not dict_queue.empty():
             pool_queue = multi_thread_request(fun, thread_num=thread_num)
 
             # 阻塞等待，不要让线程过多
-            count += thread_num
             r = [t.result() for t in pool_queue]
+            if not brute_count % 10:
+                print("\r爆破了 {} 次".format(brute_count), end='')
 
-            if not count % 100:
-                print("爆破了 {} 次".format(count))
 
-    except KeyboardInterrupt:
-        print("用户停止程序，程序运行时间{}, 运行次数 {} ".format(datetime.now() - start_time, count))
-        success = []
-        while not success_queue.empty():
-            success.append(success_queue.get())
-        print(success)
+    # except KeyboardInterrupt:
+    except:
+        print("\n用户停止程序")
 
+    if dict_queue.empty():
+        print("\n密码全部爆破完成")
+    print("程序运行时间{}, 运行次数 {} ".format(datetime.now() - start_time, brute_count))
+    success = []
+    while not success_queue.empty():
+        success.append(success_queue.get())
+    # print(success)
