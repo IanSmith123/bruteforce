@@ -7,6 +7,7 @@ dict_queue = Queue()  # 存储字典队列
 
 brute_count = 0
 
+
 def multi_thread_request(fun, thread_num: int):
     """
     多线程爆破
@@ -45,9 +46,11 @@ def bruteforce(fun, thread_num=10):
                 print("\r爆破了 {} 次".format(brute_count), end='')
 
 
-    # except KeyboardInterrupt:
+    except KeyboardInterrupt:
+        print("\n用户终止程序")
+
     except:
-        print("\n用户停止程序")
+        print("\n程序异常退出，请检查代码和网络连接")
 
     if dict_queue.empty():
         print("\n密码全部爆破完成")
@@ -55,4 +58,4 @@ def bruteforce(fun, thread_num=10):
     success = []
     while not success_queue.empty():
         success.append(success_queue.get())
-    # print(success)
+    print(success)
