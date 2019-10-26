@@ -10,6 +10,9 @@ def login():
     login_info中保存了登录所需要的所有信息，可以是用户名密码组合，可以是单纯的密码
     :return:
     """
+    # 使用session保存会话
+    s = requests.Session()
+
     try:
         login_info = dict_queue.get(block=False)
     except:
@@ -23,13 +26,17 @@ def login():
     password = login_info[1]
 
     # ###############################实现登录过程开始
+    # 获取网页内容
+    s.get("http://sep.ucas.ac.cn/")
+    # 获取验证码
+    img = s.get("http://sep.ucas.ac.cn/changePic")
+
     payload = {
         "username": username,
         "password": password,
-        "recaptcha": ''
+        "recaptcha": get_captcha(img.content)
     }
-    r = requests.post("https://httpbin.org/post", data=payload)
-    #    r = requests.post("http://127.0.0.1/api/login", json=payload)
+    r = s.post("http://sep.ucas.ac.cn/slogin", data=payload)
     # 判断是否登录成功
     # #################################实现登录过程结束
 
@@ -52,6 +59,8 @@ def login():
 def get_dict(dict_user, dict_pass):
     """
     生成字典队列
+    :param dict_user:
+    :param dict_pass:
     :return:
     """
     with open("dict/{}".format(dict_user)) as f:
@@ -75,6 +84,18 @@ def get_parse() -> dict:
     parser.add_argument("--password", "-p", help="密码字典")
     dic = vars(parser.parse_args())
     return dic
+
+
+def get_captcha(img):
+    """
+    识别验证码
+    :return:
+    """
+    # 识别验证码
+    pass
+    code = "af3z"
+
+    return code
 
 
 if __name__ == "__main__":
