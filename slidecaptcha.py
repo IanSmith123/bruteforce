@@ -30,7 +30,7 @@ def login():
         'un':username,
         'result': 'true'
     }
-    r = requests.post("http://127.0.0.1:8000/user/login_slide_captcha/slide_captcha/", data=captcha)
+    r = requests.post("http://ss.gentlecp.com:40000/user/login_slide_captcha/slide_captcha/", data=captcha)
     key = json.loads(r.content)
 
     payload = {
@@ -38,7 +38,7 @@ def login():
         "password": password,
         "key": key['key']
     }
-    r = requests.post("http://127.0.0.1:8000/user/login_slide_captcha/", data=payload)
+    r = requests.post("http://ss.gentlecp.com:40000/user/login_slide_captcha/", data=payload)
     # r = requests.post("https://httpbin.org/post", data=payload)
     # 判断是否登录成功
     # print(r.text)

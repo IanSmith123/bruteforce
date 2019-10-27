@@ -2,11 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="35ae646a-e1ea-416e-ae4b-94e9359683b2" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/limitip.py" beforeDir="false" afterPath="$PROJECT_DIR$/limitip.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/simple.py" beforeDir="false" afterPath="$PROJECT_DIR$/simple.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/bruteforce.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/bruteforce.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+>>>>>>> 5dcaa1663dd186cf4aa3e1b7ee1f7c40ef11294f
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,6 +27,7 @@
     <SUITE FILE_PATH="coverage/bruteforce$utils.coverage" NAME="utils Coverage Results" MODIFIED="1572180475075" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/bruteforce$bruteforce.coverage" NAME="bruteforce Coverage Results" MODIFIED="1572091258231" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
+<<<<<<< HEAD
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
@@ -105,6 +112,8 @@
       </file>
     </leaf>
   </component>
+=======
+>>>>>>> 5dcaa1663dd186cf4aa3e1b7ee1f7c40ef11294f
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -122,6 +131,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+<<<<<<< HEAD
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -148,32 +158,11 @@
     <option name="width" value="1440" />
     <option name="height" value="877" />
   </component>
+=======
+  <component name="ProjectId" id="1SmjaPg7IfuuvjTdFhddUcp5ldv" />
+>>>>>>> 5dcaa1663dd186cf4aa3e1b7ee1f7c40ef11294f
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
-  </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="bruteforce" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bruteforce" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bruteforce" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bruteforce" type="462c0819:PsiDirectoryNode" />
-              <item name="dict" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -200,7 +189,29 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.limitip">
+  <component name="RunManager" selected="Python.block_account_bypass">
+    <configuration name="block_account_bypass" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="bruteforce" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/block_account_bypass.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="bruteforce" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="bruteforce" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -313,6 +324,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.block_account_bypass" />
         <item itemvalue="Python.limitip" />
         <item itemvalue="Python.utils" />
         <item itemvalue="Python.test" />
@@ -333,9 +345,12 @@
       <updated>1572067788819</updated>
       <workItem from="1572067790122" duration="9298000" />
       <workItem from="1572086786814" duration="10760000" />
+      <workItem from="1572175728520" duration="548000" />
+      <workItem from="1572176654714" duration="668000" />
     </task>
     <servers />
   </component>
+<<<<<<< HEAD
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="29392000" />
   </component>
@@ -584,5 +599,25 @@
         </state>
       </provider>
     </entry>
+=======
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/bruteforce$block_account_bypass.coverage" NAME="block_account_bypass Coverage Results" MODIFIED="1572177307924" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+>>>>>>> 5dcaa1663dd186cf4aa3e1b7ee1f7c40ef11294f
   </component>
 </project>
