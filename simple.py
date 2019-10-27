@@ -27,7 +27,6 @@ def login():
     payload = {
         "username": username,
         "password": password,
-        "recaptcha": ''
     }
     r = requests.post("https://httpbin.org/post", data=payload)
     #    r = requests.post("http://127.0.0.1/api/login", json=payload)

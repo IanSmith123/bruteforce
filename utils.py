@@ -10,10 +10,13 @@ def get_proxy():
     try:
         response = requests.get(settings.PROXY_POOL_URL)
         if response.status_code == 200:
+            proxy = eval(response.text)["proxy"]
             proxies = {
-                'http': 'http://' + response.text,
-                'https': 'https://' + response.text,
+                'http': 'http://' + proxy,
+                'https': 'https://' + proxy,
             }
             return proxies
     except ConnectionError:
         return None
+
+get_proxy()

