@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="35ae646a-e1ea-416e-ae4b-94e9359683b2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/bruteforce.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/bruteforce.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -62,7 +60,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.block_account_bypass">
+  <component name="RunManager" selected="Python.signup">
     <configuration name="block_account_bypass" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="bruteforce" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -129,6 +127,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="signup" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="bruteforce" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/signup.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="simple" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="bruteforce" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -153,6 +173,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.signup" />
         <item itemvalue="Python.block_account_bypass" />
         <item itemvalue="Python.limitip" />
         <item itemvalue="Python.simple" />
@@ -174,6 +195,9 @@
       <workItem from="1572086786814" duration="10760000" />
       <workItem from="1572175728520" duration="548000" />
       <workItem from="1572176654714" duration="668000" />
+      <workItem from="1572177574726" duration="61000" />
+      <workItem from="1572179434971" duration="190000" />
+      <workItem from="1572182704722" duration="1157000" />
     </task>
     <servers />
   </component>
@@ -193,7 +217,19 @@
       </map>
     </option>
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/signup.py</url>
+          <line>40</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/bruteforce$block_account_bypass.coverage" NAME="block_account_bypass Coverage Results" MODIFIED="1572177307924" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/bruteforce$signup.coverage" NAME="signup Coverage Results" MODIFIED="1572183540241" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/bruteforce$block_account_bypass.coverage" NAME="block_account_bypass Coverage Results" MODIFIED="1572182713626" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
