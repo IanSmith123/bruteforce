@@ -13,6 +13,8 @@ from datetime import datetime
 
 username_arr = []
 password_arr = []
+username_st = 201918018670001
+username_ed = 201918018671000  # 201928018680000
 
 
 def read_file(dict_pass="password.txt"):
@@ -34,9 +36,6 @@ def gen_data():
 
     email_suffix = ["@qq.com", "@163.com", "@firefox.com", "gmail.com"]
     email_count = 0
-
-    username_st = 201918018670001
-    username_ed = 201918018671000  # 201928018680000
 
     for username in range(username_st, username_ed):
         tmp_username = str(username)
@@ -65,7 +64,7 @@ def batch_signup():
     """
     批量注册
     """
-    url = "http://127.0.0.1:8000/user/register/?referer=/"
+    url = "http://ss.gentlecp.com:40000/user/register/?referer=/"
     data = gen_data()
 
     for each in data:
@@ -95,9 +94,21 @@ def gen_random_password():
     return ''.join(random.sample(string.ascii_letters + string.digits, 8))
 
 
+def save_username():
+    fp = open('dict/{}'.format('username.txt'), 'w')
+
+    for i in range(username_st, username_ed):
+        fp.write(str(i))
+        fp.write('\n')
+
+    fp.close()
+
+
 if __name__ == "__main__":
     read_file()
     gen_data()
     batch_signup()
+
+    # save_username()
 
 
