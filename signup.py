@@ -34,7 +34,7 @@ def gen_data():
     data = []
     weak_passwords = ["123456", "12345678", "admin", "11111111", "dearbook"]
 
-    email_suffix = ["@qq.com", "@163.com", "@firefox.com", "gmail.com"]
+    email_suffix = ["@qq.com", "@163.com", "@firefox.com", "@gmail.com"]
     email_count = 0
 
     for username in range(username_st, username_ed):
@@ -64,7 +64,8 @@ def batch_signup():
     """
     批量注册
     """
-    url = "http://ss.gentlecp.com:40000/user/register/?referer=/"
+    url = "http://127.0.0.1:8000/user/register/?referer=/"
+    # url = "http://ss.gentlecp.com:40000/user/register/?referer=/"
     data = gen_data()
 
     for each in data:
@@ -80,14 +81,15 @@ def batch_signup():
         }
         r = requests.post(url, data=payload)
 
+        print(">>> 注册用户：{}".format(payload))
         if r.status_code == 200:
             success_msg = "欢迎访问GentleCP的网站"
             if success_msg in r.text:
                 print("[INFO] {0} signup success!".format(payload))
             else:
-                print("[ERROR] 注册失败")
+                print("[ERROR] 注册失败1")
         else:
-            print("[ERROR] 注册失败")
+            print("[ERROR] 注册失败2")
 
 
 def gen_random_password():
